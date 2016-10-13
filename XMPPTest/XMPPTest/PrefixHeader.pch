@@ -1,0 +1,26 @@
+//
+//  PrefixHeader.pch
+//  XMPPTest
+//
+//  Created by Apple on 16/10/12.
+//  Copyright © 2016年 waiguo. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#define DEVICE_SCREEN_W [UIScreen mainScreen].bounds.size.width
+#define DEVICE_SCREEN_H [UIScreen mainScreen].bounds.size.height
+#define HOST @"127.0.0.1"
+
+#import "NSString+Utils.h"
+#import "AsyncSocket.h"
+#import "AsyncUdpSocket.h"
+#import "ASIHTTPRequest.h"
+#import "AppDelegate.h"
+
+#import "XMPPFramework.h"
+#import "XMPPRosterCoreDataStorage.h"
+#endif /* PrefixHeader_pch */
