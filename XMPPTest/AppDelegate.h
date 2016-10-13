@@ -12,6 +12,7 @@
 #import "SMAuthDelegate.h"
 #import "SMMessageDelegate.h"
 #import "XMPPFramework.h"
+#import "XMPPAutoPing.h"
 #import "XMPPRosterCoreDataStorage.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -32,7 +33,8 @@
 - (void)setupStream;
 - (void)goOnline;
 - (void)goOffline;
--(void)login;
--(void)reg;
+- (void)login;
+- (void)reg;
+- (void)addFriend:(NSString *)name;
 @end
 

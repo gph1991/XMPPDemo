@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()<XMPPStreamDelegate,XMPPRosterDelegate>
+@interface AppDelegate ()<XMPPStreamDelegate,XMPPRosterDelegate,XMPPAutoPingDelegate>
 
 {
     BOOL isOpen;
@@ -21,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self autoPingProxyServer:@"http://www.baidu.com/"];
     return YES;
 }
 
@@ -124,6 +125,12 @@
     [[self stream] disconnect];
 }
 
+-(void)addFriend:(NSString *)name
+{
+    XMPPJID *jid = [XMPPJID jidWithString:[NSString stringWithFormat:@"%@@%@",name,HOST]];
+    [[self roster] subscribePresenceToUser:jid];
+}
+
 -(XMPPStream *)stream
 {
     if (!_stream)
@@ -172,6 +179,20 @@
 {
     [self goOnline];
     [_authDelegate loginDidFinish:nil];
+}
+
+- (void)xmppRoster:(XMPPRoster *)sender didReceivePresenceSubscriptionRequest:(XMPPPresence *)presence
+{
+    //取得好友状态
+    NSString *presenceType = [NSString stringWithFormat:@"%@", [presence type]]; //online/offline
+    //请求的用户
+    NSString *presenceFromUser =[NSString stringWithFormat:@"%@", [[presence from] user]];
+    NSLog(@"presenceType:%@",presenceType);
+    NSLog(@"presence2:%@  sender2:%@",presence,sender);
+    
+    XMPPJID *jid = [XMPPJID jidWithString:presenceFromUser];
+    //接收添加好友请求
+    [[self roster] acceptPresenceSubscriptionRequestFrom:jid andAddToRoster:YES];
 }
 
 //认证未通过
@@ -241,6 +262,42 @@
     //    NSLog(@"同意添加%@为好友", presence.fromStr);
     
     // a buddy went offline/online
+}
+
+
+//初始化并启动ping
+-(void)autoPingProxyServer:(NSString*)strProxyServer
+{
+    XMPPAutoPing *_xmppAutoPing = [[XMPPAutoPing alloc] init];
+    [_xmppAutoPing activate:[self stream]];
+    [_xmppAutoPing addDelegate:self delegateQueue: dispatch_get_main_queue()];
+    _xmppAutoPing.respondsToQueries = YES;
+    _xmppAutoPing.pingInterval = 2;//ping 间隔时间
+    if (nil != strProxyServer)
+    {
+        _xmppAutoPing.targetJID = [XMPPJID jidWithString: strProxyServer ];
+        //设置ping目标服务器，如果为nil,则监听socketstream当前连接上的那个服务器
+    }
+    
+    //卸载监听
+//    [_xmppAutoPing  deactivate];
+//    [_xmppAutoPing  removeDelegate:self];
+//    _xmppAutoPing = nil;
+}
+
+//ping XMPPAutoPingDelegate的委托方法:
+- (void)xmppAutoPingDidSendPing:(XMPPAutoPing *)sender
+{
+    NSLog(@"- (void)xmppAutoPingDidSendPing:(XMPPAutoPing *)sender");
+}
+- (void)xmppAutoPingDidReceivePong:(XMPPAutoPing *)sender
+{
+    NSLog(@"- (void)xmppAutoPingDidReceivePong:(XMPPAutoPing *)sender");
+}
+
+- (void)xmppAutoPingDidTimeout:(XMPPAutoPing *)sender
+{
+    NSLog(@"- (void)xmppAutoPingDidTimeout:(XMPPAutoPing *)sender");
 }
 
 @end

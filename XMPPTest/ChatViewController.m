@@ -87,6 +87,14 @@
 }
 
 
+
+/*
+ 
+ <message type="chat" to="gph1991@127.0.0.1">
+ <body>The </body>
+ </message>
+ 
+ */
 -(void)sendMessage
 {
     NSString *messageStr = inputField.text;
@@ -118,6 +126,7 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    [self sendMessage];
     return YES;
 }
 
@@ -131,13 +140,14 @@
     inputField.layer.cornerRadius = 5;
     inputField.layer.masksToBounds = YES;
     inputField.delegate = self;
+    inputField.returnKeyType = UIReturnKeySend;
     inputField.layer.borderColor = [UIColor lightGrayColor].CGColor;
     inputField.layer.borderWidth = 1;
     inputField.placeholder = @" 请输入";
     [inputView addSubview:inputField];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btn setTitle:@"Send" forState:UIControlStateNormal];
+    [btn setTitle:@"发送" forState:UIControlStateNormal];
     btn.frame = CGRectMake(DEVICE_SCREEN_W-50, 0, 40, 35);
     [inputView addSubview:btn];
     [btn addTarget:self action:@selector(sendMessage) forControlEvents:UIControlEventTouchUpInside];
