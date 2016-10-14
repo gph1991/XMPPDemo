@@ -45,6 +45,15 @@
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="exz-9p-2G9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgl-Zy-G4m">
+                                <rect key="frame" x="25" y="230" width="79" height="30"/>
+                                <state key="normal" title="Socket">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="socketBtnDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jEj-ls-ZDB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>

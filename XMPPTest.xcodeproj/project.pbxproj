@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0AE6743A5D1A76C4902513DD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DF496603F2E5AE51F754B4 /* Pods.framework */; };
+		18E000B61DB07CDF003F9F21 /* SocketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E000B51DB07CDF003F9F21 /* SocketViewController.m */; };
 		18F1CFA21DADDCBB00CC2A24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1CFA11DADDCBB00CC2A24 /* main.m */; };
 		18F1CFA51DADDCBB00CC2A24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1CFA41DADDCBB00CC2A24 /* AppDelegate.m */; };
 		18F1CFA81DADDCBB00CC2A24 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1CFA71DADDCBB00CC2A24 /* ViewController.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18E000B41DB07CDF003F9F21 /* SocketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketViewController.h; sourceTree = "<group>"; };
+		18E000B51DB07CDF003F9F21 /* SocketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketViewController.m; sourceTree = "<group>"; };
 		18F1CF9D1DADDCBA00CC2A24 /* XMPPTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XMPPTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F1CFA11DADDCBB00CC2A24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18F1CFA31DADDCBB00CC2A24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				18F1CFA41DADDCBB00CC2A24 /* AppDelegate.m */,
 				18F1CFA61DADDCBB00CC2A24 /* ViewController.h */,
 				18F1CFA71DADDCBB00CC2A24 /* ViewController.m */,
+				18E000B41DB07CDF003F9F21 /* SocketViewController.h */,
+				18E000B51DB07CDF003F9F21 /* SocketViewController.m */,
 				18F1CFD31DAE16CD00CC2A24 /* ChatViewController.h */,
 				18F1CFD41DAE16CD00CC2A24 /* ChatViewController.m */,
 				18F1CFD61DAE1C0B00CC2A24 /* ContactViewController.h */,
@@ -374,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F1CFD81DAE1C0B00CC2A24 /* ContactViewController.m in Sources */,
+				18E000B61DB07CDF003F9F21 /* SocketViewController.m in Sources */,
 				18F1CFDF1DAE25D400CC2A24 /* NSString+Utils.m in Sources */,
 				18F1CFA81DADDCBB00CC2A24 /* ViewController.m in Sources */,
 				18F1CFE71DAE381700CC2A24 /* ConnectManager.m in Sources */,
@@ -523,9 +529,11 @@
 			baseConfigurationReference = 35ECBD079EC77A73D4E9DC20 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XMPPTest/PrefixHeader.pch;
 				INFOPLIST_FILE = XMPPTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoma.XMPPTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -537,9 +545,11 @@
 			baseConfigurationReference = FDB99AFF7437236096F6D11F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XMPPTest/PrefixHeader.pch;
 				INFOPLIST_FILE = XMPPTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoma.XMPPTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";

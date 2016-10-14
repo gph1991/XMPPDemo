@@ -6,6 +6,7 @@
 //  Copyright © 2016年 waiguo. All rights reserved.
 //
 
+#import "SocketViewController.h"
 #import "ViewController.h"
 #import "ContactViewController.h"
 
@@ -105,6 +106,15 @@
     [_stream sendElement:presence];
     [_stream disconnect];
 }
+
+
+- (IBAction)socketBtnDown:(id)sender
+{
+    
+    SocketViewController *socket = [[SocketViewController alloc]init];
+    [self.navigationController pushViewController:socket animated:YES];
+}
+
 
 //注册
 - (void)reg:(id)sender
