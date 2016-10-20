@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0AE6743A5D1A76C4902513DD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DF496603F2E5AE51F754B4 /* Pods.framework */; };
+		181674AA1DB4BA4C00844D84 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181674A91DB4BA4C00844D84 /* MediaPlayer.framework */; };
 		1877579D1DB0EE9C002B5966 /* PingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877579C1DB0EE9C002B5966 /* PingManager.m */; };
 		18E000B61DB07CDF003F9F21 /* SocketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E000B51DB07CDF003F9F21 /* SocketViewController.m */; };
 		18F1CFA21DADDCBB00CC2A24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1CFA11DADDCBB00CC2A24 /* main.m */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181674A91DB4BA4C00844D84 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		1877579B1DB0EE9C002B5966 /* PingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingManager.h; sourceTree = "<group>"; };
 		1877579C1DB0EE9C002B5966 /* PingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingManager.m; sourceTree = "<group>"; };
 		18E000B41DB07CDF003F9F21 /* SocketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketViewController.h; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				181674AA1DB4BA4C00844D84 /* MediaPlayer.framework in Frameworks */,
 				0AE6743A5D1A76C4902513DD /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +191,7 @@
 		55EE4D464126DF36C8E227D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				181674A91DB4BA4C00844D84 /* MediaPlayer.framework */,
 				42DF496603F2E5AE51F754B4 /* Pods.framework */,
 			);
 			name = Frameworks;

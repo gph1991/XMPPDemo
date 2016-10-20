@@ -11,6 +11,7 @@
 
 #import "AsyncSocket.h"
 #import "AsyncUdpSocket.h"
+#import <MediaPlayer/MediaPlayer.h>
 #import "SocketViewController.h"
 
 @interface SocketViewController ()<AsyncSocketDelegate,UITextFieldDelegate>
@@ -35,7 +36,25 @@
     self.view.backgroundColor = [UIColor whiteColor];
     _receiveData.editable = NO;
     
-    [self createSubviews];
+//    MPMoviePlayerController *player  = [[MPMoviePlayerController alloc]initWithContentURL:[NSURL URLWithString:@""]];
+//    player.controlStyle = MPMovieControlStyleFullscreen;
+
+    
+
+    
+//    [self createSubviews];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    return;
+    MPMoviePlayerViewController *plVC = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:@"http://pull99.a8.com/live/1476689149054629.flv"]];
+    MPMoviePlayerController *player = [plVC moviePlayer];
+    player.scalingMode = MPMovieScalingModeAspectFit;
+    player.controlStyle = MPMovieControlStyleFullscreen;
+    [player play];
+    [self.navigationController presentViewController:plVC animated:YES completion:nil];
 }
 
 -(void)createSubviews

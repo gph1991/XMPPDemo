@@ -12,6 +12,8 @@ enum
     SocketOfflineByUser,  // 用户主动cut
 };
 
+#import "AsyncSocket.h"
+#import "AsyncUdpSocket.h"
 #import <Foundation/Foundation.h>
 
 @interface PingManager : NSObject<XMPPStreamDelegate,XMPPRosterDelegate>
